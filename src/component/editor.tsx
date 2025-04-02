@@ -110,14 +110,14 @@ export const SharedEditor = () => {
         </ul>
       </div>
       <div className="container mx-4">
-        <div className="flex justify-between">
+        <div className="flex flex-col sm:flex-row justify-between gap-4">
           <p className="my-4 text-lg  text-gray-200 flex items-center gap-2">
-            <span className="inline-flex font-light items-center justify-center px-2 py-1 bg-green-500 rounded-full">
+            <span className="inline-flex font-bold items-center justify-center px-2 py-1 text-green-500 rounded-full">
               {numberOfUser}
             </span>
             <span className="font-semibold">connected</span>
           </p>
-          <div>
+          <div className="text-left my-4">
             <button
               ref={connectBtnRef}
               className="px-4 py-2 text-white rounded-md hover:bg-blue-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
