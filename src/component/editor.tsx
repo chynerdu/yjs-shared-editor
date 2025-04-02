@@ -10,7 +10,7 @@ const ytype = ydoc.getText("Shared-edit");
 
 Quill.register("modules/cursors", QuillCursors);
 
-const provider = new WebsocketProvider("ws://localhost:5173", "New41", ydoc);
+const provider = new WebsocketProvider("ws://localhost:1234", "New41", ydoc);
 
 export const SharedEditor = () => {
   const [numberOfUser] = useState<string[]>([]);

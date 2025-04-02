@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "websocket": "y-websocket --port 1234"
   },
   "dependencies": {
     "nanoid": "^5.1.5",
