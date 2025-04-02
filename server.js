@@ -22,10 +22,11 @@ function broadcastUserCount() {
 
 wss.on("connection", (ws, req) => {
   setupWSConnection(ws, req);
+  console.log(`Client connected. Total clients: ${wss.clients.size}`);
   broadcastUserCount();
 });
 
-ws.on("close", () => {
+wss.on("close", () => {
   console.log(`Client disconnected. Total clients: ${wss.clients.size}`);
   broadcastUserCount(); // Notify all clients again
 });
