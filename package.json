@@ -8,8 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "websocket": "y-websocket --port 1234",
-    "start": "y-websocket --port 1234"
+    "start": "node server.js",
+    "heroku-postbuild": "npm install && npm run build"
   },
   "dependencies": {
     "nanoid": "^5.1.5",
@@ -37,5 +37,6 @@
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.24.1",
     "vite": "^6.2.0"
-  }
+  },
+  "proxy": "http://localhost:3001"
 }
