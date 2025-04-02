@@ -10,7 +10,11 @@ const ytype = ydoc.getText("Shared-edit");
 
 Quill.register("modules/cursors", QuillCursors);
 
-const provider = new WebsocketProvider("ws://localhost:3001", "New41", ydoc);
+const provider = new WebsocketProvider(
+  "wss://nedu-shared-edit-170d8cc65863.herokuapp.com",
+  "New41",
+  ydoc
+);
 
 export const SharedEditor = () => {
   const [numberOfUser] = useState<string[]>([]);
