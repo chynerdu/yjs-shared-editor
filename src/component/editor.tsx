@@ -24,15 +24,15 @@ export const SharedEditor = () => {
     console.log(e.status);
   });
 
-  const awareness = provider.awareness;
+  // const awareness = provider.awareness;
 
-  // You can observe when a user updates their awareness information
-  awareness.on("change", (changes) => {
-    console.log("type ", changes);
-    // Whenever somebody updates their awareness information,
-    // we log all awareness information from all users.
-    console.log(Array.from(awareness.getStates().values()));
-  });
+  // // You can observe when a user updates their awareness information
+  // awareness.on("change", (changes: any) => {
+  //   console.log("type ", changes);
+  //   // Whenever somebody updates their awareness information,
+  //   // we log all awareness information from all users.
+  //   console.log(Array.from(awareness.getStates().values()));
+  // });
 
   return (
     <div className="container">
