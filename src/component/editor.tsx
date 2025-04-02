@@ -17,7 +17,7 @@ const provider = new WebsocketProvider(
 );
 
 export const SharedEditor = () => {
-  const [numberOfUser, setNumberOfUser] = useState<string[]>([]);
+  const [numberOfUser] = useState<string[]>([]);
   const [buttonText, setButtonText] = useState("connect");
   const editorRef = useRef<HTMLDivElement>(null); // Add this line
   const connectBtnRef = useRef<HTMLButtonElement>(null);
@@ -28,17 +28,17 @@ export const SharedEditor = () => {
     console.log(e.status);
   });
 
-  useEffect(() => {
-    const ws = new WebSocket(
-      "wss://nedu-shared-edit-170d8cc65863.herokuapp.com"
-    );
-    ws.onmessage = (event) => {
-      const data = JSON.parse(event.data);
-      if (data.type === "user_count") {
-        setNumberOfUser(data.count);
-      }
-    };
-  });
+  // useEffect(() => {
+  //   const ws = new WebSocket(
+  //     "wss://nedu-shared-edit-170d8cc65863.herokuapp.com"
+  //   );
+  //   ws.onmessage = (event) => {
+  //     const data = JSON.parse(event.data);
+  //     if (data.type === "user_count") {
+  //       setNumberOfUser(data.count);
+  //     }
+  //   };
+  // });
 
   // const awareness = provider.awareness;
 
