@@ -13,11 +13,11 @@ Quill.register("modules/cursors", QuillCursors);
 const provider = new WebsocketProvider("ws://localhost:5173", "New41", ydoc);
 
 export const SharedEditor = () => {
-  const [numberOfUser, setNumberOfUser] = useState<string[]>([]);
+  const [numberOfUser] = useState<string[]>([]);
   const [buttonText, setButtonText] = useState("connect");
   const editorRef = useRef<HTMLDivElement>(null); // Add this line
   const connectBtnRef = useRef<HTMLButtonElement>(null);
-  const { binding } = UseQuillEditor(editorRef, ytype, provider);
+  UseQuillEditor(editorRef, ytype, provider);
 
   provider.on("status", (e) => {
     console.log(e);

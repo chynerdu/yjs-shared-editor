@@ -41,8 +41,8 @@ export const UseQuillEditor = (
       placeholder: "collab-edit-test",
       theme: "snow",
     });
-    const binding = new QuillBinding(yText, editor, provider?.awareness);
-  }, []);
+    new QuillBinding(yText, editor, provider?.awareness);
+  }, [editorRef, provider?.awareness, yText]);
 
   return {
     binding,
