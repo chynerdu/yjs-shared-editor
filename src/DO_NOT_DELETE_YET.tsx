@@ -3,7 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import * as Y from "yjs";
-import { proxy, subscribe, useSnapshot } from "valtio";
+import { proxy, useSnapshot } from "valtio";
 import { bind } from "valtio-yjs";
 import { WebrtcProvider } from "y-webrtc";
 import { nanoid } from "nanoid";
