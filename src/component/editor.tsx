@@ -2,7 +2,7 @@ import * as Y from "yjs";
 import Quill from "quill";
 import QuillCursors from "quill-cursors";
 import { WebsocketProvider } from "y-websocket";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { UseQuillEditor } from "../hooks/useQuill";
 
 const ydoc = new Y.Doc();
@@ -17,7 +17,7 @@ const provider = new WebsocketProvider(
 );
 
 export const SharedEditor = () => {
-  const [numberOfUser] = useState<string[]>([]);
+  const [numberOfUser, setNumberOfUser] = useState<string[]>([]);
   const [buttonText, setButtonText] = useState("connect");
   const editorRef = useRef<HTMLDivElement>(null); // Add this line
   const connectBtnRef = useRef<HTMLButtonElement>(null);
@@ -26,6 +26,18 @@ export const SharedEditor = () => {
   provider.on("status", (e) => {
     console.log(e);
     console.log(e.status);
+  });
+
+  useEffect(() => {
+    const ws = new WebSocket(
+      "wss://nedu-shared-edit-170d8cc65863.herokuapp.com"
+    );
+    ws.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      if (data.type === "user_count") {
+        setNumberOfUser(data.count);
+      }
+    };
   });
 
   // const awareness = provider.awareness;

@@ -11,8 +11,23 @@ const server = http.createServer((req, res) => {
 // Attach WebSocket server to the HTTP server
 const wss = new WebSocketServer({ server });
 
+function broadcastUserCount() {
+  const userCount = wss.clients.size;
+  wss.clients.forEach((client) => {
+    if (client.readyState === 1) {
+      client.send(JSON.stringify({ type: "user_count", count: userCount }));
+    }
+  });
+}
+
 wss.on("connection", (ws, req) => {
   setupWSConnection(ws, req);
+  broadcastUserCount();
+});
+
+ws.on("close", () => {
+  console.log(`Client disconnected. Total clients: ${wss.clients.size}`);
+  broadcastUserCount(); // Notify all clients again
 });
 
 const PORT = process.env.PORT || 3001;
