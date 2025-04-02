@@ -1,0 +1,1 @@
+# yjs-shared-editor
