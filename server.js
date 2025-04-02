@@ -15,7 +15,7 @@ function broadcastUserCount() {
   const userCount = wss.clients.size;
   wss.clients.forEach((client) => {
     if (client.readyState === 1) {
-      client.send(JSON.stringify({ type: "user_count", count: userCount }));
+      client.send(userCount);
     }
   });
 }
