@@ -2,7 +2,7 @@ import * as Y from "yjs";
 import Quill from "quill";
 import QuillCursors from "quill-cursors";
 import { WebsocketProvider } from "y-websocket";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { UseQuillEditor } from "../hooks/useQuill";
 
 const ydoc = new Y.Doc();
