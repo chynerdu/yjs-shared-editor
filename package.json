@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "websocket": "y-websocket --port 1234"
+    "websocket": "y-websocket --port 1234",
+    "start": "y-websocket --port 1234"
   },
   "dependencies": {
     "nanoid": "^5.1.5",
