@@ -82,12 +82,18 @@ export const SharedEditor = () => {
       <div>
         <Toaster />
       </div>
-      <h2 className="text-2xl font-bold text-white-800 mb-6">
-        Shared editor is a collaborative text editor component that enables
-        real-time editing between multiple users using Yjs, y-socket and QuillJS
+      <h2 className="text-2xl font-bold text-white-800 mb-6 ">
+        Real-time Collaborative Text Editor Demo
       </h2>
-      <div className="mb-8">
-        <h3 className="text-xl font-semibold text-white-700 mb-3">Features</h3>
+      <p className="text-lg text-white-600 mb-6">
+        Built with Yjs (CRDT implementation), y-websocket, and QuillJS for
+        seamless multi-user editing
+      </p>
+      <hr></hr>
+      <div className="my-8">
+        <h3 className="text-xl font-semibold text-white-700 mb-3 text-left">
+          Features
+        </h3>
         <ul className="space-y-2 list-none">
           <li className="flex items-center text-white-600">
             <span className="mr-2">•</span>
@@ -103,29 +109,34 @@ export const SharedEditor = () => {
           </li>
         </ul>
       </div>
-      <div className="col">
-        <button
-          ref={connectBtnRef}
-          className="px-4 py-2  text-white rounded-md hover:bg-blue-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-          style={{
-            backgroundColor: isConnected ? "#ef4444" : "#22c55e", // // equivalent to bg-green-500
-          }}
-          onClick={() => {
-            if (isConnected) {
-              provider.disconnect();
-            } else {
-              provider.connect();
-            }
-          }}
-        >
-          Click to {buttonText}
-        </button>
-        <p className=" my-4 text-lg font-semibold text-gray-200 flex items-center gap-2">
-          <span className="inline-flex items-center justify-center px-2 py-1 bg-green-500 rounded-full">
-            {numberOfUser}
-          </span>
-          <span>connected</span>
-        </p>
+      <div className="container mx-4">
+        <div className="flex justify-between">
+          <p className="my-4 text-lg  text-gray-200 flex items-center gap-2">
+            <span className="inline-flex font-light items-center justify-center px-2 py-1 bg-green-500 rounded-full">
+              {numberOfUser}
+            </span>
+            <span className="font-semibold">connected</span>
+          </p>
+          <div>
+            <button
+              ref={connectBtnRef}
+              className="px-4 py-2 text-white rounded-md hover:bg-blue-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+              style={{
+                backgroundColor: isConnected ? "#ef4444" : "#22c55e",
+              }}
+              onClick={() => {
+                if (isConnected) {
+                  provider.disconnect();
+                } else {
+                  provider.connect();
+                }
+              }}
+            >
+              Click to {buttonText}
+            </button>
+          </div>
+        </div>
+
         <div ref={editorRef} style={{ height: "300px" }}></div>
       </div>
     </div>
