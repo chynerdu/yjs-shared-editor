@@ -8,8 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "node server.js",
-    "heroku-postbuild": "npm install && npm run build"
+    "start": "node server.js"
   },
   "dependencies": {
     "nanoid": "^5.1.5",
